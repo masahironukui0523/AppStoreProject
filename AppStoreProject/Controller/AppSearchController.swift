@@ -9,9 +9,18 @@
 import UIKit
 import SDWebImage
 
-class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let cellId = "asghaligha"
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
+    fileprivate let enterSearchTermLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Please enter search tern above..."
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +28,41 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.backgroundColor = .white
         collectionView.register(SearchResultCell.self, forCellWithReuseIdentifier: cellId)
         
-        fetchITunesApps()
+        collectionView.addSubview(self.enterSearchTermLabel)
+        enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
+        
+        setupSearchBar()
+        
+    }
+    
+    fileprivate func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+    
+    var timer: Timer?
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.fetchITunesApps(searchTerm: searchText)
+            if searchText == "" {
+                self.collectionView.addSubview(self.enterSearchTermLabel)
+                self.enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
+            }
+        })
         
     }
     
     fileprivate var appResults = [Result]()
     
-    fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps { (result, err) in
+    fileprivate func fetchITunesApps(searchTerm: String) {
+        enterSearchTermLabel.removeFromSuperview()
+        Service.shared.fetchApps(searchTerm: searchTerm) { (result, err) in
             if let err = err {
                 print("Failed to fetch apps:", err)
                 return
