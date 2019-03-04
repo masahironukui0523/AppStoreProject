@@ -18,6 +18,7 @@
 		0D5F0BF0222BB4C90079228A /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */; };
 		0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF2222CB5650079228A /* VerticalStackView.swift */; };
 		0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF5222CCA5D0079228A /* SearchResult.swift */; };
+		0D5F0BF9222CF1D00079228A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF8222CF1D00079228A /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		0D5F0BF2222CB5650079228A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		0D5F0BF5222CCA5D0079228A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		0D5F0BF8222CF1D00079228A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		0D5F0BC72226AE780079228A /* AppStoreProject */ = {
 			isa = PBXGroup;
 			children = (
+				0D5F0BF7222CF1B50079228A /* Service */,
 				0D5F0BF4222CCA3C0079228A /* Model */,
 				0D5F0BF1222BB4D70079228A /* Helpers */,
 				0D5F0BE7222810600079228A /* Views */,
@@ -112,6 +115,14 @@
 				0D5F0BF5222CCA5D0079228A /* SearchResult.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0D5F0BF7222CF1B50079228A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BF8222CF1D00079228A /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */,
 				0D5F0BDB2226AF0D0079228A /* BaseTabBarController.swift in Sources */,
 				0D5F0BE22226C8520079228A /* AppSearchController.swift in Sources */,
+				0D5F0BF9222CF1D00079228A /* Service.swift in Sources */,
 				0D5F0BF0222BB4C90079228A /* UIView+Layout.swift in Sources */,
 				0D5F0BE92228108C0079228A /* SearchResultCell.swift in Sources */,
 				0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */,
