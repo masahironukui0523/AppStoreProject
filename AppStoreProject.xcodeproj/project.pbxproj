@@ -12,6 +12,12 @@
 		0D5F0BCE2226AE780079228A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D5F0BCC2226AE780079228A /* Main.storyboard */; };
 		0D5F0BD02226AE790079228A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D5F0BCF2226AE790079228A /* Assets.xcassets */; };
 		0D5F0BD32226AE790079228A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D5F0BD12226AE790079228A /* LaunchScreen.storyboard */; };
+		0D5F0BDB2226AF0D0079228A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */; };
+		0D5F0BE22226C8520079228A /* AppSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BE12226C8520079228A /* AppSearchController.swift */; };
+		0D5F0BE92228108C0079228A /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BE82228108C0079228A /* SearchResultCell.swift */; };
+		0D5F0BF0222BB4C90079228A /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */; };
+		0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF2222CB5650079228A /* VerticalStackView.swift */; };
+		0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF5222CCA5D0079228A /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		0D5F0BCF2226AE790079228A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D5F0BD22226AE790079228A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D5F0BD42226AE790079228A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		0D5F0BE12226C8520079228A /* AppSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchController.swift; sourceTree = "<group>"; };
+		0D5F0BE82228108C0079228A /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		0D5F0BF2222CB5650079228A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		0D5F0BF5222CCA5D0079228A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,10 @@
 		0D5F0BC72226AE780079228A /* AppStoreProject */ = {
 			isa = PBXGroup;
 			children = (
+				0D5F0BF4222CCA3C0079228A /* Model */,
+				0D5F0BF1222BB4D70079228A /* Helpers */,
+				0D5F0BE7222810600079228A /* Views */,
+				0D5F0BE6222810580079228A /* Controller */,
 				0D5F0BC82226AE780079228A /* AppDelegate.swift */,
 				0D5F0BCA2226AE780079228A /* ViewController.swift */,
 				0D5F0BCC2226AE780079228A /* Main.storyboard */,
@@ -62,6 +78,40 @@
 				0D5F0BD42226AE790079228A /* Info.plist */,
 			);
 			path = AppStoreProject;
+			sourceTree = "<group>";
+		};
+		0D5F0BE6222810580079228A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */,
+				0D5F0BE12226C8520079228A /* AppSearchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D5F0BE7222810600079228A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BE82228108C0079228A /* SearchResultCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D5F0BF1222BB4D70079228A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */,
+				0D5F0BF2222CB5650079228A /* VerticalStackView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0D5F0BF4222CCA3C0079228A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BF5222CCA5D0079228A /* SearchResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +187,12 @@
 			files = (
 				0D5F0BCB2226AE780079228A /* ViewController.swift in Sources */,
 				0D5F0BC92226AE780079228A /* AppDelegate.swift in Sources */,
+				0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */,
+				0D5F0BDB2226AF0D0079228A /* BaseTabBarController.swift in Sources */,
+				0D5F0BE22226C8520079228A /* AppSearchController.swift in Sources */,
+				0D5F0BF0222BB4C90079228A /* UIView+Layout.swift in Sources */,
+				0D5F0BE92228108C0079228A /* SearchResultCell.swift in Sources */,
+				0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
