@@ -12,6 +12,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     fileprivate let cellId = "gaflghai"
     fileprivate let headerId = "ahgaiwpgh"
+    fileprivate var editorsChoiceGames: AppGroup?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
 
     }
     
-    fileprivate var game: AppGroup!
-    
     fileprivate func fetchData() {
         Service.shared.fetchGames { (data, err) in
             if let err = err {
@@ -34,8 +33,10 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
                 return
             }
             guard let data = data else { return }
-            self.game = data
-            print(self.game)
+            self.editorsChoiceGames = data
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     
@@ -62,7 +63,8 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-                
+        cell.titleLabel.text = editorsChoiceGames?.feed.title
+        cell.horizontalController.appGroup = editorsChoiceGames
         return cell
     }
     

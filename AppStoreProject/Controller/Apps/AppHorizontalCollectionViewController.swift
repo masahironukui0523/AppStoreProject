@@ -13,6 +13,7 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
     fileprivate let cellId = "ghalhi"
     fileprivate let topBottomPadding: CGFloat = 12
     fileprivate let lineSpacing: CGFloat = 10
+    var appGroup: AppGroup?
 
     override func viewDidLoad() {
         super.viewDidLoad()
