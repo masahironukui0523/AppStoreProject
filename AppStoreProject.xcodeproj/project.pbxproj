@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D36399E2234F37900908461 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D36399D2234F37900908461 /* AppsPageHeader.swift */; };
+		0D3639A02234F54A00908461 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D36399F2234F54A00908461 /* AppsHeaderHorizontalController.swift */; };
+		0D3639A22234F72F00908461 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3639A12234F72F00908461 /* AppsHeaderCell.swift */; };
 		0D5F0BC92226AE780079228A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BC82226AE780079228A /* AppDelegate.swift */; };
 		0D5F0BCB2226AE780079228A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BCA2226AE780079228A /* ViewController.swift */; };
 		0D5F0BCE2226AE780079228A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D5F0BCC2226AE780079228A /* Main.storyboard */; };
@@ -19,11 +22,20 @@
 		0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF2222CB5650079228A /* VerticalStackView.swift */; };
 		0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF5222CCA5D0079228A /* SearchResult.swift */; };
 		0D5F0BF9222CF1D00079228A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F0BF8222CF1D00079228A /* Service.swift */; };
+		0DE09073222F4CC000D8B5B0 /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE09072222F4CC000D8B5B0 /* AppsPageController.swift */; };
+		0DE09076222F4DE400D8B5B0 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE09075222F4DE400D8B5B0 /* BaseListController.swift */; };
+		0DE09079222F51BF00D8B5B0 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE09078222F51BF00D8B5B0 /* AppsGroupCell.swift */; };
+		0DE0907D222FD01300D8B5B0 /* AppHorizontalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0907C222FD01300D8B5B0 /* AppHorizontalCollectionViewController.swift */; };
+		0DE0907F2230A73800D8B5B0 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE0907E2230A73800D8B5B0 /* AppRowCell.swift */; };
+		0DE090812230A91E00D8B5B0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE090802230A91E00D8B5B0 /* Extensions.swift */; };
 		85CBBF428CEDD1945128B654 /* Pods_AppStoreProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FEC2234D3BAF5FE139F106 /* Pods_AppStoreProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02FEC2234D3BAF5FE139F106 /* Pods_AppStoreProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D36399D2234F37900908461 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
+		0D36399F2234F54A00908461 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
+		0D3639A12234F72F00908461 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		0D5F0BC52226AE780079228A /* AppStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D5F0BC82226AE780079228A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D5F0BCA2226AE780079228A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +50,12 @@
 		0D5F0BF2222CB5650079228A /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		0D5F0BF5222CCA5D0079228A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		0D5F0BF8222CF1D00079228A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		0DE09072222F4CC000D8B5B0 /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
+		0DE09075222F4DE400D8B5B0 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		0DE09078222F51BF00D8B5B0 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
+		0DE0907C222FD01300D8B5B0 /* AppHorizontalCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHorizontalCollectionViewController.swift; sourceTree = "<group>"; };
+		0DE0907E2230A73800D8B5B0 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
+		0DE090802230A91E00D8B5B0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		594FCE73C7BB75997915E210 /* Pods-AppStoreProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProject/Pods-AppStoreProject.release.xcconfig"; sourceTree = "<group>"; };
 		599CA75763978BA30BAB5D4E /* Pods-AppStoreProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStoreProject/Pods-AppStoreProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */,
-				0D5F0BE12226C8520079228A /* AppSearchController.swift */,
+				0DE09075222F4DE400D8B5B0 /* BaseListController.swift */,
+				0DE09077222F4E8200D8B5B0 /* Search */,
+				0DE09074222F4CC800D8B5B0 /* Apps */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,7 +122,8 @@
 		0D5F0BE7222810600079228A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0D5F0BE82228108C0079228A /* SearchResultCell.swift */,
+				0DE0907B222F52CC00D8B5B0 /* Search */,
+				0DE0907A222F52C300D8B5B0 /* Apps */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +133,7 @@
 			children = (
 				0D5F0BEF222BB4C90079228A /* UIView+Layout.swift */,
 				0D5F0BF2222CB5650079228A /* VerticalStackView.swift */,
+				0DE090802230A91E00D8B5B0 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -130,6 +152,43 @@
 				0D5F0BF8222CF1D00079228A /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0DE09074222F4CC800D8B5B0 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				0DE0907C222FD01300D8B5B0 /* AppHorizontalCollectionViewController.swift */,
+				0DE09072222F4CC000D8B5B0 /* AppsPageController.swift */,
+				0D36399F2234F54A00908461 /* AppsHeaderHorizontalController.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		0DE09077222F4E8200D8B5B0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BE12226C8520079228A /* AppSearchController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0DE0907A222F52C300D8B5B0 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				0DE09078222F51BF00D8B5B0 /* AppsGroupCell.swift */,
+				0DE0907E2230A73800D8B5B0 /* AppRowCell.swift */,
+				0D36399D2234F37900908461 /* AppsPageHeader.swift */,
+				0D3639A12234F72F00908461 /* AppsHeaderCell.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		0DE0907B222F52CC00D8B5B0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F0BE82228108C0079228A /* SearchResultCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		3403C8719A5B1AEA3A049E28 /* Frameworks */ = {
@@ -269,15 +328,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3639A22234F72F00908461 /* AppsHeaderCell.swift in Sources */,
 				0D5F0BCB2226AE780079228A /* ViewController.swift in Sources */,
+				0DE09073222F4CC000D8B5B0 /* AppsPageController.swift in Sources */,
 				0D5F0BC92226AE780079228A /* AppDelegate.swift in Sources */,
 				0D5F0BF6222CCA5D0079228A /* SearchResult.swift in Sources */,
 				0D5F0BDB2226AF0D0079228A /* BaseTabBarController.swift in Sources */,
+				0DE09076222F4DE400D8B5B0 /* BaseListController.swift in Sources */,
+				0DE0907F2230A73800D8B5B0 /* AppRowCell.swift in Sources */,
 				0D5F0BE22226C8520079228A /* AppSearchController.swift in Sources */,
 				0D5F0BF9222CF1D00079228A /* Service.swift in Sources */,
+				0D36399E2234F37900908461 /* AppsPageHeader.swift in Sources */,
 				0D5F0BF0222BB4C90079228A /* UIView+Layout.swift in Sources */,
+				0DE090812230A91E00D8B5B0 /* Extensions.swift in Sources */,
+				0DE0907D222FD01300D8B5B0 /* AppHorizontalCollectionViewController.swift in Sources */,
 				0D5F0BE92228108C0079228A /* SearchResultCell.swift in Sources */,
 				0D5F0BF3222CB5650079228A /* VerticalStackView.swift in Sources */,
+				0DE09079222F51BF00D8B5B0 /* AppsGroupCell.swift in Sources */,
+				0D3639A02234F54A00908461 /* AppsHeaderHorizontalController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

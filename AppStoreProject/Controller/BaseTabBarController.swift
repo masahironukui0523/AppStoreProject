@@ -13,7 +13,7 @@ class BaseTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let todayVC = createNavController(rootViewController: UIViewController(), title: "Today", image: #imageLiteral(resourceName: "today_icon"))
-        let appVC = createNavController(rootViewController: UIViewController(), title: "Apps", image: #imageLiteral(resourceName: "apps"))
+        let appVC = createNavController(rootViewController: AppsPageController(), title: "Apps", image: #imageLiteral(resourceName: "apps"))
         let searchVC = createNavController(rootViewController: AppSearchController(), title: "Search", image: #imageLiteral(resourceName: "search"))
         
         viewControllers = [
@@ -22,7 +22,7 @@ class BaseTabBarController: UITabBarController {
             searchVC
         ]
                 
-        self.selectedViewController = searchVC
+        self.selectedViewController = appVC
         
     }
     

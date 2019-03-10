@@ -34,7 +34,6 @@ class SearchResultCell: UICollectionViewCell {
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.layer.cornerRadius = 12
-        imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -61,7 +60,7 @@ class SearchResultCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.8810923696, green: 0.8758550286, blue: 0.8851185441, alpha: 1)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.layer.cornerRadius = 13
