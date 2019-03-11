@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppRowCell: UICollectionViewCell {
     
+    var appRowItem: FeedResult? {
+        didSet {
+            self.nameLabel.text = appRowItem?.name
+            self.companyLabel.text = appRowItem?.artistName
+            guard let urlString = appRowItem?.artworkUrl100 else { return }
+            let url = URL(string: urlString)
+            self.imageView.sd_setImage(with: url, completed: nil)
+        }
+    }
+    
     let imageView = UIImageView(cornerRadius: 8)
-    let nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
-    let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
+    var nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
+    var companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
     let getButton = UIButton(title: "GET")
     
     override init(frame: CGRect) {

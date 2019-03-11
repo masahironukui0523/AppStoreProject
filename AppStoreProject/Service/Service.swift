@@ -12,6 +12,8 @@ class Service {
     
     static let shared = Service()
     
+    let appGroups = [AppGroup]()
+    
     func fetchApps(searchTerm: String, completion: @escaping ([Result], Error?) -> Void) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else { return }
@@ -37,8 +39,9 @@ class Service {
         }.resume()
     }
     
-    func fetchGames(completion: @escaping (AppGroup?, Error?) -> Void) {
-        guard let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json") else { return }
+    func fetchGames(urlString: String, completion: @escaping (AppGroup?, Error?) -> Void) {
+        
+        guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, res, err) in
             if let err = err {
                 completion(nil, err)

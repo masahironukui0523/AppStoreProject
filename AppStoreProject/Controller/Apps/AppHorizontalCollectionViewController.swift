@@ -24,11 +24,13 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return appGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
+        
+        cell.appRowItem = appGroup?.feed.results[indexPath.item]
         return cell
     }
     
