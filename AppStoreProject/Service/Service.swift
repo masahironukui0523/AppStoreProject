@@ -12,6 +12,8 @@ class Service {
     
     static let shared = Service()
     
+    let appGroups = [AppGroup]()
+    
     func fetchApps(searchTerm: String, completion: @escaping ([Result], Error?) -> Void) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else { return }
@@ -33,6 +35,27 @@ class Service {
             catch let jsonErr {
                 print("Faild to decode json", jsonErr)
                 completion([], jsonErr)
+            }
+        }.resume()
+    }
+    
+    func fetchGames(urlString: String, completion: @escaping (AppGroup?, Error?) -> Void) {
+        
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if let err = err {
+                completion(nil, err)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let appGroup = try JSONDecoder().decode(AppGroup.self, from: data)
+                completion(appGroup, nil)
+            }
+            catch let jsonError {
+                completion(nil, jsonError)
             }
         }.resume()
     }

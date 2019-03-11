@@ -13,6 +13,7 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
     fileprivate let cellId = "ghalhi"
     fileprivate let topBottomPadding: CGFloat = 12
     fileprivate let lineSpacing: CGFloat = 10
+    var appGroup: AppGroup?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,13 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return appGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
+        
+        cell.appRowItem = appGroup?.feed.results[indexPath.item]
         return cell
     }
     
