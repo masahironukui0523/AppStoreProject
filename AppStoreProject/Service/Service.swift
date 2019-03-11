@@ -12,8 +12,6 @@ class Service {
     
     static let shared = Service()
     
-    let appGroups = [AppGroup]()
-    
     func fetchApps(searchTerm: String, completion: @escaping ([Result], Error?) -> Void) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else { return }
@@ -58,6 +56,28 @@ class Service {
                 completion(nil, jsonError)
             }
         }.resume()
+    }
+    
+    func fetchSocial(completion: @escaping ([SocialItem]?, Error?) -> Void) {
+        guard let url = URL(string: "https://api.letsbuildthatapp.com/appstore/social") else { return }
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if let err = err {
+                completion(nil, err)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let items = try JSONDecoder().decode([SocialItem].self, from: data)
+                // TODO:- SocialItemの配列を渡す
+                completion(items, nil)
+            }
+            catch let jsonError {
+                completion(nil, jsonError)
+            }
+            }.resume()
+        
     }
     
 }

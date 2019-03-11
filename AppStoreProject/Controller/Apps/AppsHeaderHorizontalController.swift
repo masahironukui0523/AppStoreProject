@@ -10,7 +10,10 @@ import UIKit
 
 class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "agblkdashfa"
+    fileprivate let cellId = "agblkdashfa"
+    
+    // if using constant(let), error happens because it cannot be assigned value again.
+    var socialItems: [SocialItem]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,18 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+        
+//        Service.shared.fetchSocial { (items, err) in
+//            if let err = err {
+//                print("Failed to fetch data: ", err)
+//                return
+//            }
+//            self.socialItems = items
+//            DispatchQueue.main.async {
+//                self.collectionView.reloadData()
+//            }
+//        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -28,12 +43,12 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return socialItems?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
-        
+        cell.headerItem = socialItems?[indexPath.item]
         return cell
     }
     
