@@ -20,7 +20,8 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-paid/all/50/explicit.json"
     ]
     fileprivate var appGroups = [AppGroup]()
-
+    
+    let dispatchGroup = DispatchGroup()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,17 +36,20 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     fileprivate func fetchData(urlStrings: [String]) {
         for urlString in urlStrings {
+            dispatchGroup.enter()
             Service.shared.fetchGames(urlString: urlString) { (data, err) in
+                self.dispatchGroup.leave()
                 if let err = err {
                     print("Failed to fetch data:", err)
                     return
                 }
                 guard let data = data else { return }
                 self.appGroups.append(data)
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
             }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.collectionView.reloadData()
         }
     }
     
