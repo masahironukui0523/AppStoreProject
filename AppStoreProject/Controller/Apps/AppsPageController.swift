@@ -103,7 +103,11 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
         cell.appGroup = appGroups[indexPath.item]
-        
+        cell.horizontalController.didSelectHandler = { [weak self] item in
+            let vc = DetailsController()
+            vc.passedItem = item
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
         return cell
     }
     
