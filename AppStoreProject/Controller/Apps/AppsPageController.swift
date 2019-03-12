@@ -20,6 +20,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         aiv.hidesWhenStopped = true
         return aiv
     }()
+    
     fileprivate let apiUrls = [
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json",
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-apps-we-love/all/50/explicit.json",
@@ -27,6 +28,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json",
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-paid/all/50/explicit.json"
     ]
+    
     fileprivate var appGroups = [AppGroup]()
     fileprivate var socialItems: [SocialItem]?
     
@@ -60,7 +62,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         }
         
         dispatchGroup.enter()
-        Service.shared.fetchSocial { (items, err) in
+        Service.shared.fetchSocialApps { (items, err) in
             self.dispatchGroup.leave()
             if let err = err {
                 print("Failed to fetch data: ", err)
