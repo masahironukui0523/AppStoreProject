@@ -79,7 +79,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
         header.appsHeaderHorizontalController.socialItems = self.socialItems
-        header.appsHeaderHorizontalController.collectionView.reloadData()
         return header
     }
     
@@ -101,10 +100,8 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-        let appGroup = appGroups[indexPath.item]
-        cell.titleLabel.text = appGroup.feed.title
-        cell.horizontalController.appGroup = appGroup
-        cell.horizontalController.collectionView.reloadData()
+        cell.appGroup = appGroups[indexPath.item]
+        
         return cell
     }
     

@@ -13,7 +13,11 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
     fileprivate let cellId = "agblkdashfa"
     
     // if using constant(let), error happens because it cannot be assigned value again.
-    var socialItems: [SocialItem]?
+    var socialItems: [SocialItem]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +28,6 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-        
-//        Service.shared.fetchSocial { (items, err) in
-//            if let err = err {
-//                print("Failed to fetch data: ", err)
-//                return
-//            }
-//            self.socialItems = items
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
