@@ -104,8 +104,10 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
         cell.appGroup = appGroups[indexPath.item]
         cell.horizontalController.didSelectHandler = { [weak self] item in
-            let vc = DetailsController()
-            vc.passedItem = item
+            let vc = AppDetailsController()
+            // 先にdidSetを使っている方に値を入れてしまうと他の値が渡される前にviewdidloatが呼ばれnilになってしまうため(addsubviewがあるため)、最後に渡す
+            vc.appId = item.id
+            vc.apiUrls = self?.apiUrls ?? ["something"]
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         return cell
