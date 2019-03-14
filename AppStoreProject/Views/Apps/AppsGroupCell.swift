@@ -20,7 +20,7 @@ class AppsGroupCell: UICollectionViewCell {
     
     let titleLabel = UILabel(text: "App Section", font: .boldSystemFont(ofSize: 30))
     
-    let horizontalController = AppHorizontalCollectionViewController()
+    let horizontalController = AppsHorizontalCollectionViewController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
