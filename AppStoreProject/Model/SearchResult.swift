@@ -21,4 +21,5 @@ struct Result: Decodable {
     var averageUserRating: Float?
     let description: String
     let releaseNotes: String
+    let formattedPrice: String
 }
