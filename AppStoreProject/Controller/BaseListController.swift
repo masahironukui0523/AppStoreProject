@@ -12,6 +12,7 @@ class BaseListController: UICollectionViewController {
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder aDecoder: NSCoder) {

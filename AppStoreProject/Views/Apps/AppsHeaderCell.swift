@@ -10,14 +10,26 @@ import UIKit
 
 class AppsHeaderCell: UICollectionViewCell {
     
-    let companyLabel = UILabel(text: "Facebook", font: .boldSystemFont(ofSize: 12))
-    let titleLabel = UILabel(text: "Keeping up with friends is faster than ever", font: .systemFont(ofSize: 24))
-    let imageView = UIImageView(cornerRadius: 8)
+    var headerItem: SocialItem? {
+        didSet {
+            self.companyLabel.text = headerItem?.name
+            self.titleLabel.text = headerItem?.tagline
+            guard let imageUrl = headerItem?.imageUrl else {
+                print("Failed to get image")
+                return
+            }
+            let url = URL(string: imageUrl)
+            self.imageView.sd_setImage(with: url, completed: nil)
+        }
+    }
+    
+    var companyLabel = UILabel(text: "Facebook", font: .boldSystemFont(ofSize: 12))
+    var titleLabel = UILabel(text: "Keeping up with friends is faster than ever", font: .systemFont(ofSize: 24))
+    var imageView = UIImageView(cornerRadius: 8)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView.backgroundColor = .red
         titleLabel.numberOfLines = 2
         companyLabel.textColor = .blue
         

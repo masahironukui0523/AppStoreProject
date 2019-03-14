@@ -10,9 +10,17 @@ import UIKit
 
 class AppsGroupCell: UICollectionViewCell {
     
+    var appGroup: AppGroup? {
+        didSet {
+            self.titleLabel.text = appGroup?.feed.title
+            self.horizontalController.appGroup = appGroup
+            self.horizontalController.collectionView.reloadData()
+        }
+    }
+    
     let titleLabel = UILabel(text: "App Section", font: .boldSystemFont(ofSize: 30))
     
-    let horizontalController = AppHorizontalCollectionViewController()
+    let horizontalController = AppsHorizontalCollectionViewController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

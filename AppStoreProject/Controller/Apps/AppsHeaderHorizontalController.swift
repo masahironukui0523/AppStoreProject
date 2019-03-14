@@ -8,9 +8,16 @@
 
 import UIKit
 
-class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsHeaderHorizontalController: HolizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "agblkdashfa"
+    fileprivate let cellId = "agblkdashfa"
+    
+    // if using constant(let), error happens because it cannot be assigned value again.
+    var socialItems: [SocialItem]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,19 +28,16 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return socialItems?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
-        
+        cell.headerItem = socialItems?[indexPath.item]
         return cell
     }
     

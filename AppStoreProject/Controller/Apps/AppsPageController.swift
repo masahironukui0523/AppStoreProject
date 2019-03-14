@@ -12,6 +12,15 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     fileprivate let cellId = "gaflghai"
     fileprivate let headerId = "ahgaiwpgh"
+    
+    fileprivate let activityIndecatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        aiv.color = .black
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
+    
     fileprivate let apiUrls = [
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json",
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-apps-we-love/all/50/explicit.json",
@@ -19,9 +28,12 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json",
         "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-paid/all/50/explicit.json"
     ]
+    
     fileprivate var appGroups = [AppGroup]()
+    fileprivate var socialItems: [SocialItem]?
     
     let dispatchGroup = DispatchGroup()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +41,8 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         
         collectionView.backgroundColor = .white
-        
+        view.addSubview(activityIndecatorView)
+        activityIndecatorView.fillSuperview()
         fetchData(urlStrings: apiUrls)
 
     }
@@ -48,13 +61,26 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
             }
         }
         
+        dispatchGroup.enter()
+        Service.shared.fetchSocialApps { (items, err) in
+            self.dispatchGroup.leave()
+            if let err = err {
+                print("Failed to fetch data: ", err)
+                return
+            }
+            self.socialItems = items
+        }
+        
         dispatchGroup.notify(queue: .main) {
+            self.activityIndecatorView.stopAnimating()
             self.collectionView.reloadData()
         }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
+        header.appsHeaderHorizontalController.socialItems = self.socialItems
         return header
     }
     
@@ -76,10 +102,14 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-        let appGroup = appGroups[indexPath.item]
-        cell.titleLabel.text = appGroup.feed.title
-        cell.horizontalController.appGroup = appGroup
-        cell.horizontalController.collectionView.reloadData()
+        cell.appGroup = appGroups[indexPath.item]
+        cell.horizontalController.didSelectHandler = { [weak self] item in
+            let vc = AppDetailsController()
+            // 先にdidSetを使っている方に値を入れてしまうと他の値が渡される前にviewdidloatが呼ばれnilになってしまうため(addsubviewがあるため)、最後に渡す
+            vc.appId = item.id
+            vc.apiUrls = self?.apiUrls ?? ["something"]
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
         return cell
     }
     
