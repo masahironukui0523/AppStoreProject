@@ -12,6 +12,7 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
     
     fileprivate let cellId = "gasgakjlghagj"
     fileprivate let prevCellId = "prevnsaghaogn"
+    fileprivate let reviewCellId = "reviewsdjhfgapj"
     
     var appId: String! {
         didSet {
@@ -27,10 +28,25 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
                     self.collectionView.reloadData()
                 }
             }
+            
+            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?1=en&cc=us"
+            Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
+                if let err = err {
+                    print("Failed to fetch data: ", err)
+                    return
+                }
+                
+                self.reviews = reviews
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
         }
     }
     
     var app: Result?
+    var reviews: Reviews?
     
     var label = UILabel()
     
@@ -42,30 +58,33 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
         
         collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: prevCellId)
+        collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
         navigationItem.largeTitleDisplayMode = .never
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = view.frame.width
-        
+        var height: CGFloat = 280
+    
         if indexPath.item == 0 {
-            
             let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: width, height: 1000))
             dummyCell.app = app
             dummyCell.layoutIfNeeded()
             let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: width, height: 1000))
-            
-            return CGSize(width: width, height: estimatedSize.height)
-            
+            height = estimatedSize.height
+        } else if indexPath.item == 1 {
+            height = 500
         } else {
-            return CGSize(width: width, height: 500)
+            height = 280
         }
+        
+        return CGSize(width: width, height: height)
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,11 +93,15 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppDetailCell
             cell.app = app
             return cell
-        } else {
+        } else if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: prevCellId, for: indexPath) as! PreviewCell
             cell.horizontalController.app = app
             return cell
         }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! ReviewRowCell
+        cell.reviewsController.reviews = self.reviews
+        return cell
         
     }
     

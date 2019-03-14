@@ -15,6 +15,7 @@ class HolizontalSnappingController: UICollectionViewController {
         layout.scrollDirection = .horizontal
         super.init(collectionViewLayout: layout)
         collectionView.decelerationRate = .fast
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder aDecoder: NSCoder) {
