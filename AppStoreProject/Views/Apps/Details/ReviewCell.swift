@@ -10,13 +10,42 @@ import UIKit
 
 class ReviewCell: UICollectionViewCell {
     
-    let titleLabel = UILabel(text: "Review's title", font: .boldSystemFont(ofSize: 16))
+    var review: Entry! {
+        didSet {
+            self.titleLabel.text = review.title.label
+            self.authorLabal.text = review.author.name.label
+            self.bodyLabel.text = review.content.label
+            
+            for (index, view) in self.starsStackView.arrangedSubviews.enumerated() {
+                if let rating = Int(review.rating.label) {
+                    if index >= rating {
+                        view.alpha = 0
+                    } else {
+                        view.alpha = 1
+                    }
+                }
+            }
+        }
+    }
     
-    let authorLabal = UILabel(text: "Author", font: .systemFont(ofSize: 14))
+    var titleLabel = UILabel(text: "Review's title", font: .boldSystemFont(ofSize: 16))
     
-    let starsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
+    var authorLabal = UILabel(text: "Author", font: .systemFont(ofSize: 14))
     
-    let bodyLabel = UILabel(text: "Review body", font: .systemFont(ofSize: 14), numberOfLines: 0)
+    var starsStackView: UIStackView = {
+        var arrangedSubviews = [UIView]()
+        (0..<5).forEach { (_) in
+            let imageView = UIImageView(image: #imageLiteral(resourceName: "star"))
+            imageView.constrainWidth(constant: 24)
+            imageView.constrainHeight(constant: 24)
+            arrangedSubviews.append(imageView)
+        }
+        arrangedSubviews.append(UIView())
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        return stackView
+    }()
+    
+    var bodyLabel = UILabel(text: "Review body", font: .systemFont(ofSize: 14), numberOfLines: 5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,19 +54,18 @@ class ReviewCell: UICollectionViewCell {
         
         layer.cornerRadius = 16
         clipsToBounds = true
-        
+                
         let stackView = VerticalStackView(arrangeSubviews: [
             UIStackView(arrangedSubviews: [
                 titleLabel, UIView(), authorLabal
                 ], customSpacing: 8),
-            starsLabel,
+            starsStackView,
             bodyLabel
             ], spacing: 12)
         titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
         authorLabal.textAlignment = .right
-        
         addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 12, left: 12, bottom: 12, right: 12))
+        stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
         
     }
     
