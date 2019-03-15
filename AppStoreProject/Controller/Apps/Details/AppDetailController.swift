@@ -8,42 +8,18 @@
 
 import UIKit
 
-class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    // DI
+    init(appId: String) {
+        self.appId = appId
+        super.init()
+    }
+    
+    fileprivate let appId: String
     fileprivate let cellId = "gasgakjlghagj"
     fileprivate let prevCellId = "prevnsaghaogn"
     fileprivate let reviewCellId = "reviewsdjhfgapj"
-    
-    var appId: String! {
-        didSet {
-            let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
-            Service.shared.fetchGenericJSONData(urlString: urlString) { (res: SearchResult?, err) in
-                if let err = err {
-                    print("Failed to fetch data: ", err)
-                    return
-                }
-                let app = res?.results.first
-                self.app = app
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-            
-            let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?1=en&cc=us"
-            Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
-                if let err = err {
-                    print("Failed to fetch data: ", err)
-                    return
-                }
-                
-                self.reviews = reviews
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-        }
-    }
     
     var app: Result?
     var reviews: Reviews?
@@ -60,6 +36,36 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
         collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: prevCellId)
         collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
         navigationItem.largeTitleDisplayMode = .never
+        fetchData()
+    }
+    
+    fileprivate func fetchData() {
+        let urlString = "https://itunes.apple.com/lookup?id=\(appId)"
+        Service.shared.fetchGenericJSONData(urlString: urlString) { (res: SearchResult?, err) in
+            if let err = err {
+                print("Failed to fetch data: ", err)
+                return
+            }
+            let app = res?.results.first
+            self.app = app
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+        
+        let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?1=en&cc=us"
+        Service.shared.fetchGenericJSONData(urlString: reviewsUrl) { (reviews: Reviews?, err) in
+            if let err = err {
+                print("Failed to fetch data: ", err)
+                return
+            }
+            
+            self.reviews = reviews
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -107,6 +113,10 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: 0, bottom: 16, right: 0)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
