@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D31E5212237E7DD0009D6F4 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5202237E7DD0009D6F4 /* HorizontalSnappingController.swift */; };
 		0D31E523223865020009D6F4 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E522223865020009D6F4 /* BetterSnappingLayout.swift */; };
-		0D31E5262238786E0009D6F4 /* AppDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5252238786E0009D6F4 /* AppDetailsController.swift */; };
+		0D31E5262238786E0009D6F4 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5252238786E0009D6F4 /* AppDetailController.swift */; };
 		0D31E5292238A3900009D6F4 /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5282238A3900009D6F4 /* AppDetailCell.swift */; };
 		0D31E52B2239EAAC0009D6F4 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E52A2239EAAC0009D6F4 /* PreviewCell.swift */; };
 		0D31E52D223A14810009D6F4 /* PreviewScreenshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E52C223A14810009D6F4 /* PreviewScreenshotsController.swift */; };
@@ -48,7 +48,7 @@
 		02FEC2234D3BAF5FE139F106 /* Pods_AppStoreProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D31E5202237E7DD0009D6F4 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		0D31E522223865020009D6F4 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
-		0D31E5252238786E0009D6F4 /* AppDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsController.swift; sourceTree = "<group>"; };
+		0D31E5252238786E0009D6F4 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		0D31E5282238A3900009D6F4 /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		0D31E52A2239EAAC0009D6F4 /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
 		0D31E52C223A14810009D6F4 /* PreviewScreenshotsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshotsController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		0D31E5242238784F0009D6F4 /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				0D31E5252238786E0009D6F4 /* AppDetailsController.swift */,
+				0D31E5252238786E0009D6F4 /* AppDetailController.swift */,
 				0D31E532223A253D0009D6F4 /* ReviewsController.swift */,
 				0D31E52C223A14810009D6F4 /* PreviewScreenshotsController.swift */,
 			);
@@ -389,7 +389,7 @@
 				0D31E52F223A15EE0009D6F4 /* PreviewScreenshotsCell.swift in Sources */,
 				0D5F0BCB2226AE780079228A /* ViewController.swift in Sources */,
 				0DE09073222F4CC000D8B5B0 /* AppsPageController.swift in Sources */,
-				0D31E5262238786E0009D6F4 /* AppDetailsController.swift in Sources */,
+				0D31E5262238786E0009D6F4 /* AppDetailController.swift in Sources */,
 				0DDCAEA22235BE1800861277 /* AppGroup.swift in Sources */,
 				0D5F0BC92226AE780079228A /* AppDelegate.swift in Sources */,
 				0D9BEBD322370B8A00CA00DA /* SocialItem.swift in Sources */,
