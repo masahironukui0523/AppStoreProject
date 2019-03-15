@@ -105,4 +105,8 @@ class AppDetailsController: BaseListController, UICollectionViewDelegateFlowLayo
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 0, bottom: 16, right: 0)
+    }
+    
 }
