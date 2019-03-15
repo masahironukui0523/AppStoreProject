@@ -10,12 +10,13 @@ import UIKit
 
 class ReviewsController:  HolizontalSnappingController, UICollectionViewDelegateFlowLayout{
     
-    let cellId = "aeghawreview"
     var reviews: Reviews! {
         didSet {
             self.collectionView.reloadData()
         }
     }
+    
+    fileprivate let cellId = "aeghawreview"
     
     override func viewDidLoad() {
         super.viewDidLoad()
