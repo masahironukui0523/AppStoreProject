@@ -62,12 +62,12 @@ class AppSearchController: BaseListController, UICollectionViewDelegateFlowLayou
     
     fileprivate func fetchITunesApps(searchTerm: String) {
         enterSearchTermLabel.removeFromSuperview()
-        Service.shared.fetchApps(searchTerm: searchTerm) { (result, err) in
+        Service.shared.fetchApps(searchTerm: searchTerm) { (res, err) in
             if let err = err {
                 print("Failed to fetch apps:", err)
                 return
             }
-            self.appResults = result
+            self.appResults = res?.results ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }

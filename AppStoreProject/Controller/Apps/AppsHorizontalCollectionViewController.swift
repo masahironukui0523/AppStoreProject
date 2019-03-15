@@ -8,12 +8,13 @@
 
 import UIKit
 
-class AppHorizontalCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsHorizontalCollectionViewController: HolizontalSnappingController, UICollectionViewDelegateFlowLayout {
 
     fileprivate let cellId = "ghalhi"
     fileprivate let topBottomPadding: CGFloat = 12
     fileprivate let lineSpacing: CGFloat = 10
     var appGroup: AppGroup?
+    var didSelectHandler: ((_ item: FeedResult) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,13 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Notify AppsPageVC of when item is selected.
+        guard let item = appGroup?.feed.results[indexPath.item] else { return }
+        didSelectHandler?(item)
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,7 +52,7 @@ class AppHorizontalCollectionViewController: BaseListController, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: topBottomPadding, left: 16, bottom: topBottomPadding, right: 16)
+        return UIEdgeInsets(top: topBottomPadding, left: 0, bottom: topBottomPadding, right: 0)
     }
     
 }

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsHeaderHorizontalController: HolizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "agblkdashfa"
     
     // if using constant(let), error happens because it cannot be assigned value again.
-    var socialItems: [SocialItem]?
+    var socialItems: [SocialItem]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,22 +28,7 @@ class AppsHeaderHorizontalController: BaseListController, UICollectionViewDelega
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-        
-//        Service.shared.fetchSocial { (items, err) in
-//            if let err = err {
-//                print("Failed to fetch data: ", err)
-//                return
-//            }
-//            self.socialItems = items
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadData()
-//            }
-//        }
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
