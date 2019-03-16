@@ -179,12 +179,12 @@
 		0D5F0BE6222810580079228A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0D31E538223C728D0009D6F4 /* Today */,
 				0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */,
 				0DE09075222F4DE400D8B5B0 /* BaseListController.swift */,
 				0D31E5202237E7DD0009D6F4 /* HorizontalSnappingController.swift */,
-				0DE09077222F4E8200D8B5B0 /* Search */,
+				0D31E538223C728D0009D6F4 /* Today */,
 				0DE09074222F4CC800D8B5B0 /* Apps */,
+				0DE09077222F4E8200D8B5B0 /* Search */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
