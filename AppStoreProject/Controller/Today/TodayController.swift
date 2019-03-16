@@ -26,7 +26,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         let appFullscreenController = AppFullscreenController()
         let redView = appFullscreenController.view!
-        redView.backgroundColor = .red
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
             
         view.addSubview(redView)
@@ -64,7 +63,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
-        
         return cell
     }
     
