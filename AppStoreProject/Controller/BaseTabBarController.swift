@@ -12,7 +12,7 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let todayVC = createNavController(rootViewController: UIViewController(), title: "Today", image: #imageLiteral(resourceName: "today_icon"))
+        let todayVC = createNavController(rootViewController: TodayController(), title: "Today", image: #imageLiteral(resourceName: "today_icon"))
         let appVC = createNavController(rootViewController: AppsPageController(), title: "Apps", image: #imageLiteral(resourceName: "apps"))
         let searchVC = createNavController(rootViewController: AppSearchController(), title: "Search", image: #imageLiteral(resourceName: "search"))
         
