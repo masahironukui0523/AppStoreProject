@@ -22,7 +22,7 @@ class BaseTabBarController: UITabBarController {
             searchVC
         ]
                 
-        self.selectedViewController = appVC
+//        self.selectedViewController = appVC
         
     }
     
