@@ -13,7 +13,7 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
     fileprivate let cellId = "todaymultidgashio"
     fileprivate let spacing: CGFloat = 16
     
-    var items: [FeedResult]?
+    var items: [FeedResult]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,6 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         collectionView.backgroundColor = .white
         
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: cellId)
-        
-        Service.shared.fetchGames(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json", completion: { (apps, err) in
-            self.items = apps?.feed.results
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
