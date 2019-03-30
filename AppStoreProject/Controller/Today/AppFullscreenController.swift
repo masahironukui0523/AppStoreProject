@@ -51,19 +51,10 @@ class AppFullscreenController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 450
+            return TodayController.cellSize
         } else {
             return super.tableView(tableView, heightForRowAt: indexPath)
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = TodayCell()
-//        return header
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 450
-//    }
     
 }
