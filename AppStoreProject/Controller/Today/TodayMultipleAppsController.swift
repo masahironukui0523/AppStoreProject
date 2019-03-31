@@ -36,6 +36,10 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
         collectionView.register(MultipleAppCell.self, forCellWithReuseIdentifier: cellId)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override var prefersStatusBarHidden: Bool { return true }
     
     @objc func handleDismiss() {
@@ -45,6 +49,13 @@ class TodayMultipleAppsController: BaseListController, UICollectionViewDelegateF
     func setupCloseButton() {
         view.addSubview(closeButton)
         closeButton.anchor(top: view.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 16), size: .init(width: 44, height: 44))
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = items[indexPath.item]
+        let appDetailController = AppDetailController(appId: item.id)
+        
+    navigationController?.pushViewController(appDetailController, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

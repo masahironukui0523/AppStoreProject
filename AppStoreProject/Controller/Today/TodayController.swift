@@ -46,6 +46,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         fetchData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.superview?.setNeedsLayout()
+    }
+    
     private func fetchData() {
         dispatchGroupe.enter()
         Service.shared.fetchGames(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json", completion: { (apps, err) in
@@ -79,17 +84,14 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if items[indexPath.item].cellType == .multiple {
             let fullScreenController = TodayMultipleAppsController(mode: .fullscreen)
             fullScreenController.view.backgroundColor = .red
             fullScreenController.items = items[indexPath.item].apps
-            present(fullScreenController, animated: true, completion: nil)
+            handler?()
+            present(BackEnabledNavigationController(rootViewController: fullScreenController), animated: true, completion: nil)
             return
         }
         
@@ -178,7 +180,24 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = items[indexPath.item]
         
+        (cell as? TodayMultipleAppCell)?.todayMultipleAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handkeMurtipleAppsTap)))
+        
         return cell
+    }
+    
+    @objc func handkeMurtipleAppsTap(gesture: UIGestureRecognizer) {
+        let collectionView = gesture.view
+        var superview = collectionView?.superview
+        while superview != nil {
+            if let cell = superview as? TodayMultipleAppCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                let apps = self.items[indexPath.item].apps
+                let fullController = TodayMultipleAppsController(mode: .fullscreen)
+                fullController.items = apps
+                present(fullController, animated: true, completion: nil)
+            }
+            superview = superview?.superview
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

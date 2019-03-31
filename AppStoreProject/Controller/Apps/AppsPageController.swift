@@ -105,7 +105,6 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.appGroup = appGroups[indexPath.item]
         cell.horizontalController.didSelectHandler = { [weak self] item in
             let vc = AppDetailController(appId: item.id)
-            // 先にdidSetを使っている方に値を入れてしまうと他の値が渡される前にviewdidloatが呼ばれnilになってしまうため(addsubviewがあるため)、最後に渡す
             vc.apiUrls = self?.apiUrls ?? ["something"]
             self?.navigationController?.pushViewController(vc, animated: true)
         }
