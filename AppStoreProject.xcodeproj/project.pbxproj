@@ -39,7 +39,7 @@
 		0D7E24142250728C0021DD7D /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7E24132250728C0021DD7D /* BackEnabledNavigationController.swift */; };
 		0D9BEBD322370B8A00CA00DA /* SocialItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BEBD222370B8A00CA00DA /* SocialItem.swift */; };
 		0DA77530224EC8A400645CDA /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA7752F224EC8A400645CDA /* TodayMultipleAppCell.swift */; };
-		0DA77532224EE86800645CDA /* BaseTadatyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA77531224EE86800645CDA /* BaseTadatyCell.swift */; };
+		0DA77532224EE86800645CDA /* BaseTodatyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA77531224EE86800645CDA /* BaseTodatyCell.swift */; };
 		0DA77536224EF31600645CDA /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA77535224EF31600645CDA /* TodayMultipleAppsController.swift */; };
 		0DA77538224EF54800645CDA /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA77537224EF54800645CDA /* MultipleAppCell.swift */; };
 		0DBBCB8A223D934C00022F9C /* AppFullscreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBCB89223D934C00022F9C /* AppFullscreenDescriptionCell.swift */; };
@@ -91,7 +91,7 @@
 		0D7E24132250728C0021DD7D /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 		0D9BEBD222370B8A00CA00DA /* SocialItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialItem.swift; sourceTree = "<group>"; };
 		0DA7752F224EC8A400645CDA /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
-		0DA77531224EE86800645CDA /* BaseTadatyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTadatyCell.swift; sourceTree = "<group>"; };
+		0DA77531224EE86800645CDA /* BaseTodatyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodatyCell.swift; sourceTree = "<group>"; };
 		0DA77535224EF31600645CDA /* TodayMultipleAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsController.swift; sourceTree = "<group>"; };
 		0DA77537224EF54800645CDA /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
 		0DBBCB89223D934C00022F9C /* AppFullscreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullscreenDescriptionCell.swift; sourceTree = "<group>"; };
@@ -146,9 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				0D31E53E223C8F2A0009D6F4 /* AppFullscreenController.swift */,
+				0D7E24132250728C0021DD7D /* BackEnabledNavigationController.swift */,
 				0D31E539223C72DC0009D6F4 /* TodayController.swift */,
 				0DA77535224EF31600645CDA /* TodayMultipleAppsController.swift */,
-				0D7E24132250728C0021DD7D /* BackEnabledNavigationController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -158,10 +158,10 @@
 			children = (
 				0DBBCB89223D934C00022F9C /* AppFullscreenDescriptionCell.swift */,
 				0DBBCB8B223DC9B100022F9C /* AppFullscreenHeaderCell.swift */,
-				0DA77531224EE86800645CDA /* BaseTadatyCell.swift */,
+				0DA77531224EE86800645CDA /* BaseTodatyCell.swift */,
+				0DA77537224EF54800645CDA /* MultipleAppCell.swift */,
 				0D31E53B223C73350009D6F4 /* TodayCell.swift */,
 				0DA7752F224EC8A400645CDA /* TodayMultipleAppCell.swift */,
-				0DA77537224EF54800645CDA /* MultipleAppCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -467,7 +467,7 @@
 				0DE090812230A91E00D8B5B0 /* Extensions.swift in Sources */,
 				0D31E537223A32170009D6F4 /* Reviews.swift in Sources */,
 				0DE0907D222FD01300D8B5B0 /* AppsHorizontalCollectionViewController.swift in Sources */,
-				0DA77532224EE86800645CDA /* BaseTadatyCell.swift in Sources */,
+				0DA77532224EE86800645CDA /* BaseTodatyCell.swift in Sources */,
 				0D5F0BE92228108C0079228A /* SearchResultCell.swift in Sources */,
 				0D31E5212237E7DD0009D6F4 /* HorizontalSnappingController.swift in Sources */,
 				0D31E531223A217B0009D6F4 /* ReviewRowCell.swift in Sources */,

@@ -90,7 +90,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             let fullScreenController = TodayMultipleAppsController(mode: .fullscreen)
             fullScreenController.view.backgroundColor = .red
             fullScreenController.items = items[indexPath.item].apps
-            handler?()
             present(BackEnabledNavigationController(rootViewController: fullScreenController), animated: true, completion: nil)
             return
         }

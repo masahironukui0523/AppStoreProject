@@ -17,6 +17,7 @@ class TodayCell: BaseTodayCell {
             self.imageView.image = todayItem.image
             self.descriptionLabel.text = todayItem.description
             self.backgroundColor = todayItem.backGroundColor
+            self.backgroundView?.backgroundColor = todayItem.backGroundColor
         }
     }
     
@@ -32,8 +33,8 @@ class TodayCell: BaseTodayCell {
         super.init(frame: frame)
         layer.cornerRadius = 16
         backgroundColor = .white
-        clipsToBounds = true
         addSubview(imageView)
+        imageView.clipsToBounds = true
         imageView.centerInSuperview(size: .init(width: 240, height: 240))
         imageView.contentMode = .scaleAspectFill
         let imageContainerView = UIView()
