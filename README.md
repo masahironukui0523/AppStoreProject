@@ -6,5 +6,3 @@
 
 ## Introduction
 in this project, I am creating a clone app of App Store.
-I learned how to create this app thourgh 
-
