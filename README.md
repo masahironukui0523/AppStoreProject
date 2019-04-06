@@ -7,5 +7,5 @@
 ## Introduction
 I  completed a tutorial of creating a clone app taking one month.
 
-In addition to the original version, I'm trying adding new feature and making some functions much better in my own way.
+In addition to the original version, I'm trying adding some new features and making some functions much better in my own way.
 
