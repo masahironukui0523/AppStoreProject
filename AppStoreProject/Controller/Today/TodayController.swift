@@ -81,7 +81,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
                 TodayItem.init(category: "Daily List", title: self.gameApp?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backGroundColor: .white,cellType: .multiple, apps: grossingApps ?? []),
                 TodayItem.init(category: "LIFE HACK", title: self.grossingApp?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "description: All the tools and apps you need to intelligently organize your life the right way.", backGroundColor: .white, cellType: .single, apps: []),
                 TodayItem.init(category: "Daily List", title: self.gameApp?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backGroundColor: .white,cellType: .multiple, apps: gameApps ?? []),
-                TodayItem.init(category: "HOLIDAYS", title: "Travel on aBudget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everithing!", backGroundColor: #colorLiteral(red: 1, green: 0.9959574342, blue: 0.8265045285, alpha: 1), cellType: .single, apps: [])
+                TodayItem.init(category: "HOLIDAYS", title: "Travel on aBudget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everithing!", backGroundColor: #colorLiteral(red: 0.9857615829, green: 0.9635007977, blue: 0.7238370776, alpha: 1), cellType: .single, apps: [])
             ]
             self.loadViewIfNeeded()
             DispatchQueue.main.async {
@@ -221,7 +221,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout, U
             self.tabBarController?.tabBar.transform = .identity
             
             guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0,0]) as? AppFullscreenHeaderCell else { return }
-            cell.closeButton.alpha = 0
+            self.appFullscreenController.closeButton.alpha = 0
             cell.todayCell.topConstraint?.constant = 24
             cell.layoutIfNeeded()
             
