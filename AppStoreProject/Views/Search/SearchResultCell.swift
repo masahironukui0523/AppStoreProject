@@ -19,7 +19,7 @@ class SearchResultCell: UICollectionViewCell {
             let appIconUrl = URL(string: appResult.artworkUrl100)
             appIconImage.sd_setImage(with: appIconUrl)
             
-            for (i, url) in appResult.screenshotUrls.enumerated() {
+            for (i, url) in (appResult.screenshotUrls?.enumerated())! {
                 let screenshotImage = screenshotImages[i]
                 screenshotImage.sd_setImage(with: URL(string: url), completed: nil)
                 if i == 2 {

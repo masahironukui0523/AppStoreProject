@@ -33,12 +33,12 @@ class PreviewScreenshotsController: HolizontalSnappingController, UICollectionVi
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return app?.screenshotUrls.count ?? 0
+        return app?.screenshotUrls?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PreviewScreenshotsCell
-        let screenshotUrl = self.app?.screenshotUrls[indexPath.item]
+        let screenshotUrl = self.app?.screenshotUrls?[indexPath.item]
         let url = URL(string: screenshotUrl ?? "")
         cell.imageView.sd_setImage(with: url, completed: nil)
         return cell
