@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3015522261A9E10025DD8E /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3015512261A9E10025DD8E /* MusicController.swift */; };
+		0D3015552261AC480025DD8E /* TrackCekk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3015542261AC480025DD8E /* TrackCekk.swift */; };
+		0D3015572261AFD10025DD8E /* MusicLoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3015562261AFD10025DD8E /* MusicLoadingFooter.swift */; };
 		0D31E5212237E7DD0009D6F4 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5202237E7DD0009D6F4 /* HorizontalSnappingController.swift */; };
 		0D31E523223865020009D6F4 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E522223865020009D6F4 /* BetterSnappingLayout.swift */; };
 		0D31E5262238786E0009D6F4 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31E5252238786E0009D6F4 /* AppDetailController.swift */; };
@@ -57,6 +60,9 @@
 
 /* Begin PBXFileReference section */
 		02FEC2234D3BAF5FE139F106 /* Pods_AppStoreProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3015512261A9E10025DD8E /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		0D3015542261AC480025DD8E /* TrackCekk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCekk.swift; sourceTree = "<group>"; };
+		0D3015562261AFD10025DD8E /* MusicLoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLoadingFooter.swift; sourceTree = "<group>"; };
 		0D31E5202237E7DD0009D6F4 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		0D31E522223865020009D6F4 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		0D31E5252238786E0009D6F4 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
@@ -120,6 +126,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D3015502261A9C20025DD8E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				0D3015512261A9E10025DD8E /* MusicController.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		0D3015532261AC230025DD8E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				0D3015542261AC480025DD8E /* TrackCekk.swift */,
+				0D3015562261AFD10025DD8E /* MusicLoadingFooter.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		0D31E5242238784F0009D6F4 /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +228,7 @@
 		0D5F0BE6222810580079228A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0D3015502261A9C20025DD8E /* Music */,
 				0DE09074222F4CC800D8B5B0 /* Apps */,
 				0DE09075222F4DE400D8B5B0 /* BaseListController.swift */,
 				0D5F0BDA2226AF0D0079228A /* BaseTabBarController.swift */,
@@ -218,6 +242,7 @@
 		0D5F0BE7222810600079228A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0D3015532261AC230025DD8E /* Music */,
 				0DE0907A222F52C300D8B5B0 /* Apps */,
 				0DE0907B222F52CC00D8B5B0 /* Search */,
 				0D31E53D223C733C0009D6F4 /* Today */,
@@ -441,6 +466,8 @@
 				0D31E5262238786E0009D6F4 /* AppDetailController.swift in Sources */,
 				0DDCAEA22235BE1800861277 /* AppGroup.swift in Sources */,
 				0D31E53C223C73350009D6F4 /* TodayCell.swift in Sources */,
+				0D3015572261AFD10025DD8E /* MusicLoadingFooter.swift in Sources */,
+				0D3015552261AC480025DD8E /* TrackCekk.swift in Sources */,
 				0D5F0BC92226AE780079228A /* AppDelegate.swift in Sources */,
 				0D9BEBD322370B8A00CA00DA /* SocialItem.swift in Sources */,
 				0DBBCB8A223D934C00022F9C /* AppFullscreenDescriptionCell.swift in Sources */,
@@ -456,6 +483,7 @@
 				0D31E52D223A14810009D6F4 /* PreviewScreenshotsController.swift in Sources */,
 				0D31E53F223C8F2A0009D6F4 /* AppFullscreenController.swift in Sources */,
 				0DE0907F2230A73800D8B5B0 /* AppRowCell.swift in Sources */,
+				0D3015522261A9E10025DD8E /* MusicController.swift in Sources */,
 				0D5F0BE22226C8520079228A /* AppSearchController.swift in Sources */,
 				0D5F0BF9222CF1D00079228A /* Service.swift in Sources */,
 				0D36399E2234F37900908461 /* AppsPageHeader.swift in Sources */,
